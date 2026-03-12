@@ -1,65 +1,91 @@
-# Gerenciador de Tarefas (ToDo List)
+# Gerenciador de Tarefas
 
-Aplicação Spring Boot com Thymeleaf para gerenciamento de tarefas.
-
-## Tecnologias
-
-- Java 21
-- Spring Boot 4.0.3
-- Thymeleaf
-- Maven
-- Bean Validation (Jakarta Validation)
-
-## Como Executar
-
-### Pré-requisitos
-
-- Java 21 instalado
-- Maven instalado (ou use o wrapper `./mvnw`)
-
-### Executando
-
-```bash
-# Usando Maven Wrapper
-./mvnw spring-boot:run
-
-# Ou usando Maven instalado
-mvn spring-boot:run
-```
-
-A aplicação será iniciada na porta **8080**.
-
-## URLs Disponíveis
-
-| URL                          | Método | Descrição                      |
-|------------------------------|--------|--------------------------------|
-| `/tarefas`                   | GET    | Listar todas as tarefas        |
-| `/tarefas/novo`              | GET    | Formulário para nova tarefa    |
-| `/tarefas/editar/{id}`       | GET    | Formulário para editar tarefa  |
-| `/tarefas/salvar`            | POST   | Salvar tarefa (criar/atualizar)|
-| `/tarefas/excluir/{id}`      | POST   | Excluir tarefa                 |
-| `/tarefas/status/{id}`       | GET    | Alternar status da tarefa      |
-
-## Estrutura do Projeto
-
-```
-com.biopark.tarefas/
-├── TarefasAppApplication.java    # Classe principal
-├── controller/
-│   └── TarefaController.java     # Controlador MVC
-├── service/
-│   └── TarefaService.java        # Regras de negócio
-├── repository/
-│   └── TarefaRepository.java     # Armazenamento em memória
-└── model/
-    └── Tarefa.java                # Entidade Tarefa
-```
+Sistema web simples para gerenciamento de tarefas desenvolvido com **Spring Boot** e **Thymeleaf**.
+A aplicação permite criar, visualizar, editar, excluir e alterar o status de tarefas, além de filtrar tarefas por status.
 
 ## Funcionalidades
 
-- Criar, editar e excluir tarefas
-- Alternar status entre "Pendente" e "Concluída"
-- Validação de formulários com mensagens de erro
-- Mensagens flash de sucesso/erro
-- 3 tarefas de exemplo pré-cadastradas
-- Interface responsiva com CSS customizado
+* Criar nova tarefa
+* Listar todas as tarefas
+* Editar tarefas existentes
+* Excluir tarefas
+* Alternar status da tarefa (pendente / concluída)
+* Filtrar tarefas:
+
+  * Todas
+  * Pendentes
+  * Concluídas
+* Contador de tarefas (total, pendentes e concluídas)
+
+## Tecnologias utilizadas
+
+* Java
+* Spring Boot
+* Thymeleaf
+* HTML / CSS
+* Maven
+
+## Estrutura do Projeto
+
+O projeto segue o padrão **MVC (Model - View - Controller)**:
+
+* **Model**: representa os dados da aplicação (Tarefa)
+* **Repository**: responsável por armazenar e recuperar as tarefas
+* **Service**: contém a lógica de negócio
+* **Controller**: recebe as requisições HTTP e controla o fluxo da aplicação
+* **View**: interface web desenvolvida com Thymeleaf
+
+## Como executar o projeto
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+```
+
+### 2. Abrir o projeto na IDE
+
+Abra o projeto utilizando uma IDE Java, como:
+
+* IntelliJ IDEA
+* Eclipse
+* VS Code
+
+### 3. Executar a aplicação
+
+Localize a classe principal do Spring Boot (geralmente `TarefasApplication`) e execute a aplicação.
+
+### 4. Acessar no navegador
+
+Após iniciar o servidor, acesse:
+
+```
+http://localhost:8080/tarefas
+```
+
+## Filtros de Tarefas
+
+A aplicação permite filtrar tarefas através da URL:
+
+* Todas as tarefas
+
+```
+/tarefas
+```
+
+* Apenas tarefas pendentes
+
+```
+/tarefas?filtro=pendentes
+```
+
+* Apenas tarefas concluídas
+
+```
+/tarefas?filtro=concluidas
+```
+
+## Autor
+
+Willian Quincozes
+Engenharia de Software
